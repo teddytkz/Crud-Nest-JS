@@ -3,6 +3,7 @@ import { CreateUserDto } from "./create-user.dto";
 import { EntityNotFoundExceptionFilter } from "./entity-note-found-exception.filter";
 import { UserService } from "./user.service";
 
+
 @Controller('users')
 @UseFilters(new EntityNotFoundExceptionFilter)
 export class UserController {
@@ -37,7 +38,7 @@ export class UserController {
     }
 
     @Delete(':id')
-    @HttpCode(HttpStatus.NO_CONTENT)
+    // @HttpCode(HttpStatus.NO_CONTENT)
     async remove(@Param('id') id: number) {
         await this.userService.delete(id)
     }
